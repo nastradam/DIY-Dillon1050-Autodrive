@@ -1,0 +1,42 @@
+flowchart LR
+  subgraph Pi["Raspberry Pi GPIO"]
+    PiGPIO[GPIO Inputs/Outputs]
+    I2C[I2C Bus]
+    USB[USB 3.0]
+  end
+
+  subgraph IO["Field IO"]
+    OptoIn[Opto-Isolated Inputs]
+    Relays[Safety Relays / Contactors]
+    ToF[VL53L0X ToF]
+    IR1[IR Break Beam - High]
+    IR2[IR Break Beam - Low]
+  end
+
+  subgraph Dillon["Dillon Interfaces"]
+    LowPrimerSwitch[Low Primer Switch]
+    PowderCheckSwitch[Powder Check Switch]
+  end
+
+  subgraph Vision["Cameras"]
+    CamA[Pi Cam v3 - Orientation]
+    CamB[Pi Cam v3 - OAL/Counter]
+    Lights[LED Ring/Bar]
+  end
+
+  subgraph Drive["Motor Drive"]
+    VFD[Driver/VFD/Servo Drive]
+    Motor[Motor]
+    EStop[E-Stop]
+  end
+
+  LowPrimerSwitch --> OptoIn --> PiGPIO
+  PowderCheckSwitch --> OptoIn --> PiGPIO
+  IR1 --> PiGPIO
+  IR2 --> PiGPIO
+  ToF --> I2C
+  CamA --> USB
+  CamB --> USB
+  PiGPIO --> Relays --> VFD --> Motor
+  EStop --- VFD
+  Lights --> PiGPIO

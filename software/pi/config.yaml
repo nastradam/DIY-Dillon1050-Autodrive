@@ -1,0 +1,17 @@
+# Controller configuration (GPIO, thresholds, calibration)
+motor:
+  driver_type: TBD   # VFD/Servo/Stepper
+  enable_gpio: 17
+  estop_gpio: 27
+
+sensors:
+  low_primer_gpio: 5
+  powder_check_gpio: 6
+  encoder_gpio: 13
+  ir_high_gpio: 19
+  ir_low_gpio: 26
+
+vision:
+  orientation_cam: 0
+  oal_cam: 1
+  oal_tolerance_in: 0.003

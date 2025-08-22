@@ -1,0 +1,31 @@
+flowchart TD
+  subgraph Control["Control & UI (Raspberry Pi)"]
+    API[FastAPI REST API]
+    UI[Touchscreen UI (Web App)]
+    DB[(SQLite DB)]
+  end
+
+  subgraph Actuation["Motor & Drive"]
+    Motor[Press Motor / Drive]
+    Driver[Motor Driver / VFD / Servo]
+    EStop[E-Stop Relay]
+  end
+
+  subgraph Sensors["Sensors & Interlocks"]
+    Enc[Cycle Encoder/Prox]
+    D_LowPrimer[Low Primer (Dillon Switch)]
+    D_PowderCheck[Powder Check (Dillon Switch)]
+    PowderLvl[Powder Level Sensor(s)]
+    Cam1[Orientation Camera]
+    Cam2[OAL & Counter Camera]
+  end
+
+  UI <--> API <--> DB
+  API --> Driver --> Motor
+  EStop --- Driver
+  Enc --> API
+  D_LowPrimer --> API
+  D_PowderCheck --> API
+  PowderLvl --> API
+  Cam1 --> API
+  Cam2 --> API

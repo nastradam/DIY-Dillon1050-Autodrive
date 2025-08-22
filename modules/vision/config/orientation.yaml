@@ -1,0 +1,12 @@
+camera:
+  source: "csi0"   # csi0|csi1|/dev/video0|file
+  width: 1280
+  height: 720
+  roi: [320, 120, 640, 480]
+  exposure_us: 4000
+  gain: 1.0
+trigger_phase_deg: [150, 200]
+
+orientation:
+  centroid_offset_limit_mm: 0.25
+  templates_dir: "modules/vision/data/templates"   # optional

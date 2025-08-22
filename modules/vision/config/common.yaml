@@ -1,0 +1,15 @@
+general:
+  data_dir: "modules/vision/data"
+  timezone: "America/Phoenix"
+  save_fail_images: true
+
+gpio:
+  hall_sensor_pin: 17
+  breakbeam_pin: 22
+  reject_solenoid_pin: 27
+  input_pullups: true
+
+sync:
+  rpm_estimate: 300
+  debounce_ms: 5
+  encoder_ppr: 0

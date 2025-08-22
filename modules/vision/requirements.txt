@@ -1,0 +1,8 @@
+opencv-python==4.10.0.84
+numpy>=1.26
+PyYAML>=6.0.1
+Flask>=3.0.2
+gunicorn>=21.2.0
+# GPIO (Pi)
+gpiod>=2.2.4
+RPi.GPIO; platform_system=="Linux" and platform_machine=="armv7l"

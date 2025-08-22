@@ -1,0 +1,19 @@
+camera:
+  source: "csi1"
+  width: 1280
+  height: 720
+  roi: [320, 240, 640, 360]
+  exposure_us: 4000
+  gain: 1.0
+trigger_phase_deg: [350, 20]
+
+oal:
+  target_in: 1.150
+  tol_soft_in: 0.003
+  tol_hard_in: 0.005
+  px_per_mm: 10.0
+  homography_file: "modules/vision/data/oal_homography.npy"
+
+counter:
+  method: "vision"   # vision|sensor
+  min_object_area_px: 80
